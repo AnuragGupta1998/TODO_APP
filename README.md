@@ -1,6 +1,6 @@
 # TODO_APP
 Adding the contact into database and displaying 
 
-#To run this Application
+#To run this Application\n
 1.clone the repo
 2.npm start
