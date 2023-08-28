@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+        <%= locals.title %> 
+    </title>
+   
+    <script src="https://kit.fontawesome.com/4e5ed42a60.js" crossorigin="anonymous"></script>
+    <!-- assets file is access by home.ejs-->
+    <link rel="stylesheet" href="/css/home.css">
+    
+    
+</head>
+<body>
+    <div style="background-color: rgb(186, 236, 236);">
+        <h1>
+            <%= heading %>
+        </h1>
+    </div>
+  <!-- taking input from user.......................................................... -->
+    <div style="background-color: rgb(48, 116, 116);">
+        <form action="/create-contact" method="post">
+
+            <input type="text" name="name" placeholder="Enter Name" required>
+            <input type="number" name="phone" placeholder="Enter Phone No" required>
+            <button type="submit">Add</button>
+
+        </form>
+    </div>
+
+   <!-- adding contact to contact list -->
+    <div>
+        <ul>
+
+          <% for(let i of contList) { %>
+            <li>
+              <span><%= i.name  %></span>
+              <span><%= i.phone %></span>  
+
+              <a href="/delete-contact/?id=<%=  i._id   %> "> 
+                <i class="fa-solid fa-circle-xmark"></i> 
+               </a>
+            </li>
+          <% } %>
+          
+        </ul>
+    </div>
+    
+</body>
+</html>
